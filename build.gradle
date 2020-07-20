@@ -22,6 +22,7 @@ buildscript {
 
 plugins {
   id 'org.jetbrains.intellij' version "0.4.19"
+  id 'org.jetbrains.changelog' version "0.4.0"
 }
 
 version = "${version}"
@@ -51,6 +52,16 @@ allprojects {
     type 'IU'
     plugins 'uml', 'java'
     updateSinceUntilBuild false
+    patchPluginXml {
+      changeNotes({
+        changelog.getLatest().toHTML() +
+        "<a href=\"https://github.com/JetBrains/Grammar-Kit/blob/master/CHANGELOG.md\">Full change log...</a>"
+      })
+    }
+  }
+  changelog {
+    headerFormat = "{0}"
+    itemPrefix = "*"
   }
   buildSearchableOptions.enabled = false
 }
