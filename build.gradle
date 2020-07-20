@@ -62,6 +62,7 @@ allprojects {
   changelog {
     headerFormat = "{0}"
     itemPrefix = "*"
+    unreleasedTerm = "Unreleased"
   }
   buildSearchableOptions.enabled = false
 }
